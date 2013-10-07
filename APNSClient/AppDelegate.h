@@ -9,4 +9,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic)Boolean registered;
+
 @end

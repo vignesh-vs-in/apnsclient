@@ -8,12 +8,8 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    return YES;
-}
-							
+@synthesize registered = _registered;
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -27,12 +23,12 @@
     
     //Local Notification
     
-    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:~ NSTimeZoneCalendarUnit fromDate:[NSDate date]];
-    NotifyItem *item1 = [[NotifyItem alloc] initWithDateComponents:dateComponents andName:@"Testing1"];
-    NotifyItem *item2 = [[NotifyItem alloc] initWithDateComponents:dateComponents andName:@"Testing2"];
-    
-    [NotificationHelper scheduleNotificationWithItem:item1 afterInterval:1];
-    [NotificationHelper scheduleNotificationWithItem:item2 afterInterval:2];
+//    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:~ NSTimeZoneCalendarUnit fromDate:[NSDate date]];
+//    NotifyItem *item1 = [[NotifyItem alloc] initWithDateComponents:dateComponents andName:@"Testing1"];
+//    NotifyItem *item2 = [[NotifyItem alloc] initWithDateComponents:dateComponents andName:@"Testing2"];
+//    
+//    [NotificationHelper scheduleNotificationWithItem:item1 afterInterval:1];
+//    [NotificationHelper scheduleNotificationWithItem:item2 afterInterval:2];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -48,6 +44,60 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)applicationDidFinishLaunching:(UIApplication *)app {
+    
+    // other setup tasks here....
+    
+}
+
+// Delegation methods
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    const unsigned *devTokenBytes = [devToken bytes];
+    
+    self.registered = YES;
+    
+    [self sendProviderDeviceToken:devTokenBytes]; // custom method
+    
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    
+    NSLog(@"Error in registration. Error: %@", err);
+    
+}
+
+- (BOOL)application:(UIApplication *)app didFinishLaunchingWithOptions:(NSDictionary *)opts {
+    
+    // check launchOptions for notification payload and custom data, set UI context
+    
+    if (opts) {
+        [self startDownloadingDataFromProvider];  // custom method
+    }
+    else{
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    }
+    
+    
+    app.applicationIconBadgeNumber = 0;
+    
+    // other setup tasks here....
+    return YES;
+}
+
+-(void)sendProviderDeviceToken:(const unsigned *)tokenBytes{
+    NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                                                ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                                ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                                ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+    NSLog(@"Token %@",hexToken);
+}
+
+-(void)startDownloadingDataFromProvider{
+    
 }
 
 @end
