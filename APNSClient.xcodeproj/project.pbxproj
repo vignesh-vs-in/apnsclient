@@ -22,6 +22,8 @@
 		78E47AD11802D67E00ED9125 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E47AB01802D67E00ED9125 /* UIKit.framework */; };
 		78E47AD91802D67E00ED9125 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78E47AD71802D67E00ED9125 /* InfoPlist.strings */; };
 		78E47ADB1802D67E00ED9125 /* APNSClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E47ADA1802D67E00ED9125 /* APNSClientTests.m */; };
+		78E47AE81802D6DB00ED9125 /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E47AE71802D6DB00ED9125 /* NotificationHelper.m */; };
+		78E47AEB1802D6F000ED9125 /* NotifyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E47AEA1802D6F000ED9125 /* NotifyItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		78E47AD61802D67E00ED9125 /* APNSClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "APNSClientTests-Info.plist"; sourceTree = "<group>"; };
 		78E47AD81802D67E00ED9125 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		78E47ADA1802D67E00ED9125 /* APNSClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APNSClientTests.m; sourceTree = "<group>"; };
+		78E47AE61802D6DB00ED9125 /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
+		78E47AE71802D6DB00ED9125 /* NotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelper.m; sourceTree = "<group>"; };
+		78E47AE91802D6F000ED9125 /* NotifyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyItem.h; sourceTree = "<group>"; };
+		78E47AEA1802D6F000ED9125 /* NotifyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,8 @@
 		78E47AB21802D67E00ED9125 /* APNSClient */ = {
 			isa = PBXGroup;
 			children = (
+				78E47AE51802D6AF00ED9125 /* Helpers */,
+				78E47AE41802D6A800ED9125 /* Models */,
 				78E47ABB1802D67E00ED9125 /* AppDelegate.h */,
 				78E47ABC1802D67E00ED9125 /* AppDelegate.m */,
 				78E47ABE1802D67E00ED9125 /* Main_iPhone.storyboard */,
@@ -153,6 +161,24 @@
 				78E47AD71802D67E00ED9125 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		78E47AE41802D6A800ED9125 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				78E47AE91802D6F000ED9125 /* NotifyItem.h */,
+				78E47AEA1802D6F000ED9125 /* NotifyItem.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		78E47AE51802D6AF00ED9125 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				78E47AE61802D6DB00ED9125 /* NotificationHelper.h */,
+				78E47AE71802D6DB00ED9125 /* NotificationHelper.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E47AEB1802D6F000ED9125 /* NotifyItem.m in Sources */,
 				78E47AC61802D67E00ED9125 /* ViewController.m in Sources */,
 				78E47ABD1802D67E00ED9125 /* AppDelegate.m in Sources */,
+				78E47AE81802D6DB00ED9125 /* NotificationHelper.m in Sources */,
 				78E47AB91802D67E00ED9125 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
