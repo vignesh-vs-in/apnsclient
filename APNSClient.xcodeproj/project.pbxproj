@@ -120,8 +120,7 @@
 		78E47AB21802D67E00ED9125 /* APNSClient */ = {
 			isa = PBXGroup;
 			children = (
-				78E47AE51802D6AF00ED9125 /* Helpers */,
-				78E47AE41802D6A800ED9125 /* Models */,
+				78E47AEC1805D21E00ED9125 /* lib */,
 				78E47ABB1802D67E00ED9125 /* AppDelegate.h */,
 				78E47ABC1802D67E00ED9125 /* AppDelegate.m */,
 				78E47ABE1802D67E00ED9125 /* Main_iPhone.storyboard */,
@@ -163,22 +162,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		78E47AE41802D6A800ED9125 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				78E47AE91802D6F000ED9125 /* NotifyItem.h */,
-				78E47AEA1802D6F000ED9125 /* NotifyItem.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		78E47AE51802D6AF00ED9125 /* Helpers */ = {
+		78E47AEC1805D21E00ED9125 /* lib */ = {
 			isa = PBXGroup;
 			children = (
 				78E47AE61802D6DB00ED9125 /* NotificationHelper.h */,
 				78E47AE71802D6DB00ED9125 /* NotificationHelper.m */,
+				78E47AE91802D6F000ED9125 /* NotifyItem.h */,
+				78E47AEA1802D6F000ED9125 /* NotifyItem.m */,
 			);
-			name = Helpers;
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
