@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		789DB90F180AA2EA00344DB3 /* NetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DB90E180AA2EA00344DB3 /* NetworkHelper.m */; };
+		789DB912180AAC4400344DB3 /* MagicValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DB911180AAC4400344DB3 /* MagicValues.m */; };
 		78E47AAD1802D67E00ED9125 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E47AAC1802D67E00ED9125 /* Foundation.framework */; };
 		78E47AAF1802D67E00ED9125 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E47AAE1802D67E00ED9125 /* CoreGraphics.framework */; };
 		78E47AB11802D67E00ED9125 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E47AB01802D67E00ED9125 /* UIKit.framework */; };
@@ -37,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		789DB90D180AA2EA00344DB3 /* NetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHelper.h; sourceTree = "<group>"; };
+		789DB90E180AA2EA00344DB3 /* NetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHelper.m; sourceTree = "<group>"; };
+		789DB910180AAC4400344DB3 /* MagicValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicValues.h; sourceTree = "<group>"; };
+		789DB911180AAC4400344DB3 /* MagicValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicValues.m; sourceTree = "<group>"; };
 		78E47AA91802D67E00ED9125 /* APNSClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APNSClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E47AAC1802D67E00ED9125 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		78E47AAE1802D67E00ED9125 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -169,6 +175,10 @@
 				78E47AE71802D6DB00ED9125 /* NotificationHelper.m */,
 				78E47AE91802D6F000ED9125 /* NotifyItem.h */,
 				78E47AEA1802D6F000ED9125 /* NotifyItem.m */,
+				789DB90D180AA2EA00344DB3 /* NetworkHelper.h */,
+				789DB90E180AA2EA00344DB3 /* NetworkHelper.m */,
+				789DB910180AAC4400344DB3 /* MagicValues.h */,
+				789DB911180AAC4400344DB3 /* MagicValues.m */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -272,7 +282,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				78E47AEB1802D6F000ED9125 /* NotifyItem.m in Sources */,
+				789DB912180AAC4400344DB3 /* MagicValues.m in Sources */,
 				78E47AC61802D67E00ED9125 /* ViewController.m in Sources */,
+				789DB90F180AA2EA00344DB3 /* NetworkHelper.m in Sources */,
 				78E47ABD1802D67E00ED9125 /* AppDelegate.m in Sources */,
 				78E47AE81802D6DB00ED9125 /* NotificationHelper.m in Sources */,
 				78E47AB91802D67E00ED9125 /* main.m in Sources */,

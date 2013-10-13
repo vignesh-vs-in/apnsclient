@@ -5,6 +5,7 @@
 
 #import "AppDelegate.h"
 #import "NotificationHelper.h"
+#import "NetworkHelper.h"
 
 @implementation AppDelegate
 
@@ -73,7 +74,6 @@
 - (BOOL)application:(UIApplication *)app didFinishLaunchingWithOptions:(NSDictionary *)opts {
     
     // check launchOptions for notification payload and custom data, set UI context
-    
     if (opts) {
         [self startDownloadingDataFromProvider];  // custom method
     }
@@ -81,19 +81,26 @@
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     }
     
-    
     app.applicationIconBadgeNumber = 0;
     
-    // other setup tasks here....
     return YES;
 }
 
 -(void)sendProviderDeviceToken:(const unsigned *)tokenBytes{
-    NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+    NSString *strToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
                                                 ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
                                                 ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
                                                 ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
-    NSLog(@"Token %@",hexToken);
+    NSLog(@"Token %@",strToken);
+    
+    NSString* lastToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"token"];
+    
+    if (![strToken isEqualToString:lastToken]) {
+        //Only send device token if it is changed
+        if ([NetworkHelper sendTokenToServer:strToken]) {
+            [[NSUserDefaults standardUserDefaults] setObject:strToken forKey:@"token"];
+        }
+    }
 }
 
 -(void)startDownloadingDataFromProvider{
